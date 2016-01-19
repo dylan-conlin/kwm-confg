@@ -12,17 +12,17 @@
 
 # Set default values for screen padding
 kwmc config padding top 40
-kwmc config padding bottom 40
-kwmc config padding left 20
-kwmc config padding right 20
-
+kwmc config padding bottom 20
+kwmc config padding left 10
+kwmc config padding right 10
+ 
 # Set default values for container gaps
-kwmc config gap vertical 20
-kwmc config gap horizontal 20
+kwmc config gap vertical 10
+kwmc config gap horizontal 10
 
 # Enable border for focused and marked window
 kwmc config focused-border enable
-kwmc config focused-border size 10
+kwmc config focused-border size 12
 kwmc config focused-border color 66FF66EE
 
 kwmc config marked-border enable
@@ -91,7 +91,7 @@ kwmc config float Photoshop
 #### These binds are prefixed
 # kwmc bind prefix+cmd+alt+ctrl-t config focus toggle
 # kwmc bind prefix+cmd+alt+ctrl-r window -c refresh
-# kwmc bind prefix+cmd+alt+ctrl-q quit
+
 
 #### Default Keybindings For Interacting With Kwm
 kwmc bind cmd+alt+ctrl-t config focus toggle
@@ -101,7 +101,6 @@ kwmc bind cmd+alt+ctrl-q quit
 kwmc bind cmd+alt+ctrl-m window -t mark
 kwmc bind cmd+alt+ctrl-s window -c split
 
-kwmc bind cmd+alt+ctrl-f window -t fullscreen
 kwmc bind cmd+alt+ctrl-p window -t parent
 kwmc bind cmd+alt+ctrl-w window -t float
 # kwmc bind cmd+alt+ctrl-return sys open -na /Applications/iTerm.app
@@ -127,13 +126,6 @@ kwmc bind cmd+alt-f space -t monocle
 kwmc bind cmd+alt-d space -t float
 kwmc bind cmd+alt-r tree -r 90
 
-kwmc bind cmd+alt-h window -f prev
-kwmc bind cmd+alt-l window -f next
-
-kwmc bind cmd+alt-p window -s prev
-kwmc bind cmd+alt-n window -s next
-kwmc bind cmd+alt-m window -s mark
-
 kwmc bind cmd+alt-x space -g decrease horizontal
 kwmc bind cmd+alt-y space -g decrease vertical
 
@@ -146,9 +138,15 @@ kwmc bind cmd+alt-leftarrow window -f prev
 kwmc bind cmd+alt-rightarrow window -f next
 kwmc bind cmd+alt-uparrow window -t parent
 
-kwmc bind cmd+alt+ctrl-h window -c reduce 0.1
-kwmc bind cmd+alt+ctrl-l window -c expand 0.1
+
+kwmc bind cmd+alt+ctrl-, window -t fullscreen
 
 kwmc bind cmd+alt-z window -s prev
 kwmc bind cmd+alt-c window -s next
 kwmc bind cmd+alt-m window -s mark
+
+kwmc bind cmd+alt+ctrl-1 tree restore development
+kwmc bind cmd+alt+ctrl-\ quit
+
+kwmc bind cmd+alt+ctrl-d window -c reduce 0.1
+kwmc bind cmd+alt+ctrl-f window -c expand 0.1
