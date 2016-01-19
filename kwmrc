@@ -20,14 +20,15 @@ kwmc config padding right 10
 kwmc config gap vertical 10
 kwmc config gap horizontal 10
 
-# Enable border for focused and marked window
+# Enable border.
+# The first two numbers are the opacity, the rest is the hex
 kwmc config focused-border enable
-kwmc config focused-border size 12
-kwmc config focused-border color 66FF66EE
+kwmc config focused-border size 9
+kwmc config focused-border color 9916FF0F
 
 kwmc config marked-border enable
 kwmc config marked-border size 5
-kwmc config marked-border color FFBDD322
+kwmc config marked-border color 75ff7122
 
 # Let Kwm listen for hotkeys
 kwmc config hotkeys enable
