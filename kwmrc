@@ -11,8 +11,8 @@
 # e.g 'sys mvim' would open macvim
 
 # Set default values for screen padding
-kwmc config padding top 40
-kwmc config padding bottom 20
+kwmc config padding top 10
+kwmc config padding bottom 10
 kwmc config padding left 10
 kwmc config padding right 10
  
