@@ -18,7 +18,7 @@ kwmc config padding right 10
  
 # Set default values for container gaps
 kwmc config gap vertical 10
-kwmc config gap horizontal 10
+kwmc config gap horizontal 20
 
 # Enable border.
 # The first two numbers are the opacity, the rest is the hex
