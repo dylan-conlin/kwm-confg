@@ -36,6 +36,7 @@ kwmc config hotkeys enable
 # Set prefix for Kwms hotkeys
 # kwmc config prefix ctrl-k
 # kwmc config prefix-global disable
+
 kwmc config prefix-timeout 0.75
 
 # Set focus-follows-mouse-mode to autoraise
@@ -99,7 +100,8 @@ kwmc bind cmd+alt+ctrl-r window -c refresh
 kwmc bind cmd+alt+ctrl-q quit
 
 kwmc bind cmd+alt+ctrl-m window -t mark
-kwmc bind cmd+alt+ctrl-s window -c split
+# kwmc bind cmd+alt+ctrl-s window -c split
+
 
 
 kwmc bind ctrl+alt-m window -x
@@ -116,7 +118,7 @@ kwmc bind ctrl+alt-y space -g increase vertical
 kwmc bind ctrl+alt-leftarrow space -p increase left
 kwmc bind ctrl+alt-rightarrow space -p increase right
 kwmc bind ctrl+alt-uparrow space -p increase top
-kwmc bind ctrl+alt-downarrow space -p increase bottom
+# kwmc bind ctrl+alt-downarrow space -p increase bottom
 
 kwmc bind cmd+alt-s space -t bsp
 kwmc bind cmd+alt-f space -t monocle
@@ -130,31 +132,59 @@ kwmc bind cmd+alt-y space -g decrease vertical
 # kwmc bind cmd+alt-uparrow space -p decrease top
 # kwmc bind cmd+alt-downarrow space -p decrease bottom
 
-kwmc bind cmd+alt-uparrow window -t parent
+# kwmc bind cmd+alt-uparrow window -t parent
 kwmc bind cmd+alt+ctrl-p window -t parent
 kwmc bind cmd+alt-m window -s mark
 
 # kwmc bind cmd+alt+ctrl-return sys open -na /Applications/iTerm.app
 
-# A
-kwmc bind cmd+alt-leftarrow window -f prev
-# G
-kwmc bind cmd+alt-rightarrow window -f next
 # R
 kwmc bind cmd+alt-r tree -r 90
+
+# Set temporary window container
+#
 # W
 kwmc bind cmd+alt+ctrl-w window -t float
 # F
 kwmc bind cmd+alt+ctrl-, window -t fullscreen
-# Q
-kwmc bind cmd+alt-z window -s prev
-# T
-kwmc bind cmd+alt-c window -s next
+
+
+# Give focus to window
+#
+# H
+kwmc bind cmd+alt-leftarrow window -f west
+# J
+kwmc bind cmd+alt-downarrow window -f south
+# K
+kwmc bind cmd+alt-uparrow window -f north
+# L
+kwmc bind cmd+alt-rightarrow window -f east
+
+# Move focused window
+#
+# Y
+kwmc bind cmd+alt-z window -s west
+# O
+kwmc bind cmd+alt-c window -s east
+# I
+kwmc bind cmd+alt-b window -s north
+# U
+kwmc bind cmd+ctrl-downarrow window -s south
+
 # 1
 kwmc bind cmd+alt+ctrl-1 tree restore development
 # Y
 kwmc bind cmd+alt+ctrl-\ quit
-# D
-kwmc bind cmd+alt+ctrl-d window -c reduce 0.025
-# S
-kwmc bind cmd+alt+ctrl-f window -c expand 0.025
+
+# Resize windows
+#
+# Down
+kwmc bind cmd+alt+ctrl-uparrow window -c reduce 0.025
+# Up
+kwmc bind cmd+alt+ctrl-downarrow window -c expand 0.025
+# LEFT
+kwmc bind cmd+alt+ctrl-leftarrow window -c reduce 0.025
+# RIGHT
+kwmc bind cmd+alt+ctrl-rightarrow window -c expand 0.025
+# V
+kwmc bind cmd-3 window -c split
