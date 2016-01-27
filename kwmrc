@@ -136,7 +136,7 @@ kwmc bind cmd+alt-y space -g decrease vertical
 kwmc bind cmd+alt+ctrl-p window -t parent
 kwmc bind cmd+alt-m window -s mark
 
-# kwmc bind cmd+alt+ctrl-return sys open -na /Applications/iTerm.app
+# kwmc bind cmd+alt+ctrl-return sys open -a /Applications/iTerm.app
 
 # R
 kwmc bind cmd+alt-r tree -r 90
