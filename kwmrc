@@ -10,9 +10,12 @@
 # 'sys' and then the requested command
 # e.g 'sys mvim' would open macvim
 
+
+
+
 # Set default values for screen padding
-kwmc config padding top 10
-kwmc config padding bottom 10
+kwmc config padding top 20
+kwmc config padding bottom 20
 kwmc config padding left 10
 kwmc config padding right 10
  
@@ -30,12 +33,16 @@ kwmc config marked-border enable
 kwmc config marked-border size 5
 kwmc config marked-border color 75ff7122
 
+kwmc config hotkey-border enable
+kwmc config hotkey-border size 10
+kwmc config hotkey-border color 99FFFF00
+
 # Let Kwm listen for hotkeys
 kwmc config hotkeys enable
 
 # Set prefix for Kwms hotkeys
-# kwmc config prefix ctrl-k
-# kwmc config prefix-global disable
+kwmc config prefix alt-a
+kwmc config prefix-global enable
 
 kwmc config prefix-timeout 0.75
 
@@ -78,113 +85,77 @@ kwmc config add-role AXWindow Karabiner
 # Automatically float non-resizable windows
 kwmc config float-non-resizable enable
 
-# The following command blacklists a specific application
-# from Kwms tiling (PS: The app name is case-sensitive)
-# If the name consist of multiple words, the command
-# looks like: kwmc config float Google Chrome
-kwmc config float Steam
-kwmc config float Photoshop
 
 # The following command captures an application to the
 # given screen, if the screen exists. By doing this
 # the application can no longer be moved to other screens
 # kwmc config capture 1 iTunes
 
-#### These binds are prefixed
-# kwmc bind prefix+cmd+alt+ctrl-t config focus toggle
-t# kwmc bind prefix+cmd+alt+ctrl-r window -c Refresh
-
 #### Defaulto Keybindings For Interacting With Kwm
-kwmc bind cmd+alt+ctrl-t config focus toggle
-kwmc bind cmd+alt+ctrl-r window -c refresh
-kwmc bind cmd+alt+ctrl-q quit
-
-kwmc bind cmd+alt+ctrl-m window -t mark
-# kwmc bind cmd+alt+ctrl-s window -c split
-
-
-
-kwmc bind ctrl+alt-m window -x
-kwmc bind ctrl+alt-p screen -m prev
-kwmc bind ctrl+alt-n screen -m next
+kwmc bind prefix-t config focus toggle
+kwmc bind prefix-e window -c refresh
 
 kwmc bind ctrl+alt-1 screen -m 0
 kwmc bind ctrl+alt-2 screen -m 1
 kwmc bind ctrl+alt-3 screen -m 2
 
-kwmc bind ctrl+alt-x space -g increase horizontal
-kwmc bind ctrl+alt-y space -g increase vertical
-
-kwmc bind ctrl+alt-leftarrow space -p increase left
-kwmc bind ctrl+alt-rightarrow space -p increase right
-kwmc bind ctrl+alt-uparrow space -p increase top
-# kwmc bind ctrl+alt-downarrow space -p increase bottom
-
 kwmc bind cmd+alt-s space -t bsp
 kwmc bind cmd+alt-f space -t monocle
 kwmc bind cmd+alt-d space -t float
 
-kwmc bind cmd+alt-x space -g decrease horizontal
-kwmc bind cmd+alt-y space -g decrease vertical
 
-# kwmc bind cmd+alt-leftarrow space -p decrease left
-# kwmc bind cmd+alt-rightarrow space -p decrease right
-# kwmc bind cmd+alt-uparrow space -p decrease top
-# kwmc bind cmd+alt-downarrow space -p decrease bottom
-
-# kwmc bind cmd+alt-uparrow window -t parent
-kwmc bind cmd+alt+ctrl-p window -t parent
-kwmc bind cmd+alt-m window -s mark
+kwmc bind prefix-p window -t parent
+kwmc bind prefix-m window -s mark
 
 # kwmc bind cmd+alt+ctrl-return sys open -a /Applications/iTerm.app
-
 # R
-kwmc bind cmd+alt-r tree -r 90
+kwmc bind prefix-r tree -r 90
 
 # Set temporary window container
 #
 # W
-kwmc bind cmd+alt+ctrl-w window -t float
+kwmc bind prefix-w window -t float
 # F
-kwmc bind cmd+alt+ctrl-, window -t fullscreen
+kwmc bind prefix-f window -t fullscreen
 
 
 # Give focus to window
 #
-# H
-kwmc bind cmd+alt-leftarrow window -f west
-# J
-kwmc bind cmd+alt-downarrow window -f south
-# K
-kwmc bind cmd+alt-uparrow window -f north
-# L
-kwmc bind cmd+alt-rightarrow window -f east
+# h
+kwmc bind prefix-h window -f west
+# j
+kwmc bind prefix-j window -f south
+# k
+kwmc bind prefix-k window -f north
+# l
+kwmc bind prefix-l window -f east
 
 # Move focused window
 #
-# Y
-kwmc bind cmd+alt-z window -s west
-# O
-kwmc bind cmd+alt-c window -s east
-# I
-kwmc bind cmd+alt-b window -s north
-# U
-kwmc bind cmd+ctrl-downarrow window -s south
+# H
+kwmc bind prefix+shift-h window -s west
+# J
+kwmc bind prefix+shift-j window -s south
+# K
+kwmc bind prefix+shift-k window -s north
+# L
+kwmc bind prefix+shift-l window -s east
 
-# 1
-kwmc bind cmd+alt+ctrl-1 tree restore development
-# Y
-kwmc bind cmd+alt+ctrl-\ quit
+# y
+kwmc bind prefix-q quit
+
+
+# s
+kwmc bind prefix-s window -c split
 
 # Resize windows
-#
 # Down
-kwmc bind cmd+alt+ctrl-uparrow window -c reduce 0.025
+kwmc bind prefix-uparrow window -c reduce 0.025
 # Up
-kwmc bind cmd+alt+ctrl-downarrow window -c expand 0.025
+kwmc bind prefix-downarrow window -c expand 0.025
 # LEFT
-kwmc bind cmd+alt+ctrl-leftarrow window -c reduce 0.025
+kwmc bind prefix-leftarrow window -c reduce 0.025
 # RIGHT
-kwmc bind cmd+alt+ctrl-rightarrow window -c expand 0.025
-# V
-kwmc bind cmd-3 window -c split
+kwmc bind prefix-rightarrow window -c expand 0.025
+
+
