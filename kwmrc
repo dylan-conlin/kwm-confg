@@ -10,9 +10,6 @@
 # 'sys' and then the requested command
 # e.g 'sys mvim' would open macvim
 
-
-
-
 # Set default values for screen padding
 kwmc config padding top 20
 kwmc config padding bottom 20
@@ -20,31 +17,30 @@ kwmc config padding left 10
 kwmc config padding right 10
  
 # Set default values for container gaps
-kwmc config gap vertical 10
-kwmc config gap horizontal 20
+kwmc config gap vertical 5
+kwmc config gap horizontal 10
 
 # Enable green border.
 # The first two numbers are the opacity, the rest is the hex
 kwmc config focused-border enable
 kwmc config focused-border size 9
-kwmc config focused-border color 990000FF
+kwmc config focused-border color 991C86EE
 
 kwmc config marked-border enable
 kwmc config marked-border size 5
 kwmc config marked-border color 75ff7122
 
-kwmc config hotkey-border enable
-kwmc config hotkey-border size 10
-kwmc config hotkey-border color 99FFFF00
+kwmc config prefix-border enable
+kwmc config prefix-border size 9
+kwmc config prefix-border color 99FFFF00
 
 # Let Kwm listen for hotkeys
 kwmc config hotkeys enable
 
 # Set prefix for Kwms hotkeys
-kwmc config prefix alt-a
-kwmc config prefix-global enable
+kwmc config prefix cmd+ctrl-k
 
-kwmc config prefix-timeout 0.75
+kwmc config prefix-timeout 0.50
 
 # Set focus-follows-mouse-mode to autoraise
 kwmc config focus autoraise
@@ -72,7 +68,7 @@ kwmc config space bsp
 # kwmc config screen 1 monocle
 
 # Set default split ratio
-kwmc config split-ratio 0.5
+kwmc config split-ratio 0.75
 
 # Add custom tiling rules for applications that
 # does not get tiled by Kwm by default.
@@ -103,18 +99,20 @@ kwmc bind cmd+alt-s space -t bsp
 kwmc bind cmd+alt-f space -t monocle
 kwmc bind cmd+alt-d space -t float
 
-
 kwmc bind prefix-p window -t parent
-kwmc bind prefix-m window -s mark
 
-# kwmc bind cmd+alt+ctrl-return sys open -a /Applications/iTerm.app
+
+# Swap With Marked Window
+kwmc bind prefix-m mark -w focused
+kwmc bind prefix-w window -s mark
+
 # R
 kwmc bind prefix-r tree -r 90
 
 # Set temporary window container
 #
 # W
-kwmc bind prefix-w window -t float
+kwmc bind prefix-g window -t float
 # F
 kwmc bind prefix-f window -t fullscreen
 
@@ -129,6 +127,8 @@ kwmc bind prefix-j window -f south
 kwmc bind prefix-k window -f north
 # l
 kwmc bind prefix-l window -f east
+# l
+kwmc bind prefix-b window -f prev
 
 # Move focused window
 #
@@ -140,22 +140,32 @@ kwmc bind prefix+shift-j window -s south
 kwmc bind prefix+shift-k window -s north
 # L
 kwmc bind prefix+shift-l window -s east
+# B
+kwmc bind prefix+shift-b window -s east
 
 # y
 kwmc bind prefix-q quit
-
 
 # s
 kwmc bind prefix-s window -c split
 
 # Resize windows
 # Down
-kwmc bind prefix-uparrow window -c reduce 0.025
+kwmc bind prefix-up window -c reduce 0.025
 # Up
-kwmc bind prefix-downarrow window -c expand 0.025
+kwmc bind prefix-down window -c expand 0.025
 # LEFT
-kwmc bind prefix-leftarrow window -c reduce 0.025
+kwmc bind prefix-left window -c reduce 0.025
 # RIGHT
-kwmc bind prefix-rightarrow window -c expand 0.025
+kwmc bind prefix-right window -c expand 0.025
 
+kwmc bind prefix-2 tree restore development
+kwmc bind prefix-1 tree restore chatting
+kwmc bind prefix-3 tree restore threeverticalsplits
 
+kwmc bind prefix-i sys open -a /Applications/iTerm.app
+kwmc bind prefix-u sys open -a /Applications/iTunes.app
+kwmc bind prefix-v sys open -a /Applications/slack.app
+
+# Restart
+kwmc bind prefix-q kwmc quit
